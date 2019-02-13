@@ -22,9 +22,11 @@ class ArticleController extends AbstractController
      * @route("/", name="app_homepage")
      */
     public function homepage() {
-        return new Response('test');
+        return $this->render('article/home.html.twig') ;
     }
-    /** @route("/articles/{titre}") */
+    /**
+     * @route("/",name="article_show")
+     */
     function show($titre){
 $comments=["mon premier commentaire","mon deuxieme commentaire","mon troisieme commentaire"];
         return $this->render('article/show.html.twig',[
