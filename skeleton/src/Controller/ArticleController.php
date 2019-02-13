@@ -23,10 +23,10 @@ class ArticleController
     public function homepage() {
         return new Response('test');
     }
-    /** @route("/article/mon-super-article") */
-    function show(){
-        return new  Response("Mon super article s'affiche");
+    /** @route("/articles/{titre}") */
+    function show($titre){
 
+        return new Response("Mon article ayant pour titre".$titre."s'affiche");
     }
 
 }
