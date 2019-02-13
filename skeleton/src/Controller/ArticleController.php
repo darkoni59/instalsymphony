@@ -19,7 +19,7 @@ class ArticleController extends AbstractController
 {
     /**
      * @return Response
-     * @route("/")
+     * @route("/", name="app_homepage")
      */
     public function homepage() {
         return new Response('test');

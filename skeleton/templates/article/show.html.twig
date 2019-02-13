@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    {% block title %}salut{% endblock %}
+
+    <h1>{% block title %}salut{% endblock %}</h1>
     {% for comment in comments %}
         <p>{{ comment }}</p>
     {% endfor %}
