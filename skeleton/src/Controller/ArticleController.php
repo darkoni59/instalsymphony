@@ -26,8 +26,9 @@ class ArticleController extends AbstractController
     }
     /** @route("/articles/{titre}") */
     function show($titre){
-
+$comments=["mon premier commentaire","mon deuxieme commentaire","mon troisieme commentaire"];
         return $this->render('show.html.twig',["title"=>$titre]);
+        return $this->render('show.html.twig',["comments"=>$comments]);
     }
 
 }
