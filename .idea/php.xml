@@ -37,6 +37,9 @@
       <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/persistence" />
       <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/twig/twig" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
