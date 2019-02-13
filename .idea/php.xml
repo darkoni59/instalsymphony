@@ -27,6 +27,16 @@
       <path value="$PROJECT_DIR$/skeleton/vendor/symfony/finder" />
       <path value="$PROJECT_DIR$/skeleton/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/skeleton/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/reflection" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/skeleton/vendor/doctrine/lexer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
