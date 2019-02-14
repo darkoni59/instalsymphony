@@ -10,7 +10,7 @@ namespace App\Controller;
 
 
 
-
+use App\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,8 +31,44 @@ $comments=["mon premier commentaire","mon deuxieme commentaire","mon troisieme c
             "title"=>$titre,
             "comments"=>$comments,
 
-        ]);
+        ]
+        );
+    }
+    /**
+     * @Route("/articleCreate", name="article_create")
+     */
+    function creat(){
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $article = new Article();
+        $article->setTitre('Titre Que Vous Voulez');
+        $article->setContenu('Du contenu');
+
+
+        // Cette instruction permet d'indiquer à Doctrine qu'on souhaite sauvegarder en mémoire le nouvel enregistrement
+        $entityManager->persist($article);
+
+        // Cette instruction éxécute la requete , en réalité il s'agit d'éxécuter toutes les requetes plaçées en mémoire,
+        // dans notre cas, il n'y en a qu'une
+        $entityManager->flush();
+
+        return new Response('Saved new article with id '.$article->getId());
 
     }
+    /**
 
+    @Route("/article/{id}", name="article_show_from_db") */
+
+    public function showFromDB(Article $article) {
+
+        $comments = ["Commentaire 1","Commentaire 2","Commentaire "];
+
+        return $this->render('article/show.html.twig',
+            ["title"=>$article->getTitre(),
+                "contenu"=>$article->getContenu(),
+                "comments"=>$comments
+            ]);
+
+    }
 }
