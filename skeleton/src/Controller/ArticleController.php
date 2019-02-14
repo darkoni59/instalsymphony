@@ -76,6 +76,30 @@ $comments=["mon premier commentaire","mon deuxieme commentaire","mon troisieme c
         return new Response('Saved new article with id '.$article->getId());
 
     }
+    /**
 
+     * @Route("/articleNew", name="create_post_route")
 
+     */
+
+    public function new(Request $request)
+
+    {
+        $article = new Article;
+        $form = $this->createFormBuilder($article)
+            ->add('titre', Text::Class)
+            ->add('contenu', Text::Class)
+            ->add('submit', SubmitType::Class, ['label' => 'Create Article'])
+            ->getForm();
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $article = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+            return $this->redirectToRoute('app_homepage');
+        }
+        return $this->render('/article/add.html.twig',['form'=>$form->createView(),]);
+    }
 }
