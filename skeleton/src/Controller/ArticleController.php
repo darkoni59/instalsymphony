@@ -42,8 +42,8 @@ $comments=["mon premier commentaire","mon deuxieme commentaire","mon troisieme c
         $entityManager = $this->getDoctrine()->getManager();
 
         $article = new Article();
-        $article->setTitre('Titre Que Vous Voulez');
-        $article->setContenu('Du contenu');
+        $article->setTitre('avatar');
+        $article->setContenu('film de james cameron');
 
 
         // Cette instruction permet d'indiquer à Doctrine qu'on souhaite sauvegarder en mémoire le nouvel enregistrement
