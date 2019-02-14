@@ -22,7 +22,27 @@ class ArticleController extends AbstractController
      * @route("/", name="app_homepage")
      */
     public function homepage() {
-        return $this->render('article/home.html.twig') ;
+        $articlerep=$this->getDoctrine()->getRepository(Article::class);
+        $articles=$articlerep->findAll();
+        return $this->render('article/home.html.twig',[
+            'articles'=>$articles
+        ]) ;
+// returne un tableau $tbl = $stmt->fetchAll();
+    }
+    /**
+
+    @Route("/article/{id}", name="article_show_from_db") */
+
+    public function showFromDB(Article $article) {
+
+        $comments = ["Commentaire 1","Commentaire 2","Commentaire "];
+
+        return $this->render('article/show.html.twig',
+            ["title"=>$article->getTitre(),
+                "contenu"=>$article->getContenu(),
+                "comments"=>$comments
+            ]);
+
     }
     /** @route("/articles/{titre}",name="article_show") */
     function show($titre){
@@ -42,8 +62,8 @@ $comments=["mon premier commentaire","mon deuxieme commentaire","mon troisieme c
         $entityManager = $this->getDoctrine()->getManager();
 
         $article = new Article();
-        $article->setTitre('avatar');
-        $article->setContenu('film de james cameron');
+        $article->setTitre('titre');
+        $article->setContenu('contenu');
 
 
         // Cette instruction permet d'indiquer à Doctrine qu'on souhaite sauvegarder en mémoire le nouvel enregistrement
@@ -56,19 +76,6 @@ $comments=["mon premier commentaire","mon deuxieme commentaire","mon troisieme c
         return new Response('Saved new article with id '.$article->getId());
 
     }
-    /**
 
-    @Route("/article/{id}", name="article_show_from_db") */
 
-    public function showFromDB(Article $article) {
-
-        $comments = ["Commentaire 1","Commentaire 2","Commentaire "];
-
-        return $this->render('article/show.html.twig',
-            ["title"=>$article->getTitre(),
-                "contenu"=>$article->getContenu(),
-                "comments"=>$comments
-            ]);
-
-    }
 }

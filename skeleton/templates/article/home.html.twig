@@ -1,7 +1,30 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <nav>  <a href={{path('article_show', {titre : 'MonSuperArticle'})  }}>click for article</a>  </nav>
+    <nav>   </nav>
 <h1>{% block title %}je mange une pomme {% endblock %}</h1>
+
+
+    {% for article in articles %}
+    <p>{{ article.titre }}</p>
+        <a href={{path('article_show', {titre : 'MonSuperArticle'})  }}>click for article</a>
+
+    {% endfor %}
+
+
+    <form action="articleCreate" method="post">
+        <div>
+
+            <input type="text" name="titre" placeholder="titre">
+        </div>
+        <div>
+
+            <input type="text" name="contenu" placeholder="contenu">
+        </div>
+        <div>
+            <button type="submit" name="button">envoyer</button>
+        </div>
+    </form>
+
 
 
 {% endblock %}
